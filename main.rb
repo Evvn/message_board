@@ -25,6 +25,8 @@ get '/' do
   # if user is not logged in, redirect to login page
   redirect '/login' unless logged_in?
 
+  @posts = Post.all
+
   erb :index
 end
 
@@ -83,7 +85,14 @@ get '/new_post' do
 end
 
 post '/post/new' do
+  # get inputs from new post form
+  post = Post.new
+  post.image_url = params[:image_url]
+  post.content = params[:content]
+  post.post_time = Time.now
+  post.user_id = current_user.id
+  post.save
 
-
+  # get post redirect
   redirect '/'
 end

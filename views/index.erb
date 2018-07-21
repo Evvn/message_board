@@ -3,3 +3,14 @@
 <form action="/new_post" method="get">
   <button>create a post</button>
 </form>
+
+<% @posts.each do |post| %>
+
+  <div>
+    <%= User.find(post.user_id).username %>
+    <%= post.post_time%>
+    <img src="<%= post['image_url'] %>" alt="" height=100px;>
+    <%= post['content'] %>
+  </div>
+
+<% end %>
