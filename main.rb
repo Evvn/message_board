@@ -64,7 +64,7 @@ end
 post '/create_user' do
     # check that params are not empty
     if params[:username] == "" || params[:password] == ""
-      redirect '/new__user'
+      redirect '/new_user'
     end
     # add new user object to db
     # set admin rights to false (0)
@@ -75,4 +75,15 @@ post '/create_user' do
     session[:user_id] = user.id
     # redirect to index page
     redirect '/'
+end
+
+get '/new_post' do
+
+  erb :new_post
+end
+
+post '/post/new' do
+
+
+  redirect '/'
 end
