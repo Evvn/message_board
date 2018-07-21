@@ -2,9 +2,9 @@
 <a href="/">home</a>
 
 <% if current_user.admin == "1" %>
-  <form action="/posts/<%= @post['id'] %>" method="post">
+  <form action="/post/<%= @post['id'] %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button>delete</button>
+    <button>delete post [A]</button>
   </form>
 <% end %>
 
@@ -17,6 +17,13 @@
 
 <% @comments.each do |comment| %>
   <div>
+    <% if current_user.admin == "1" %>
+      <form action="/comment/<%= comment['id'] %>" method="post">
+        <input type="hidden" name="post_id" value="<%= @post['id'] %>">
+        <input type="hidden" name="_method" value="delete">
+        <button>delete comment [A]</button>
+      </form>
+    <% end %>
     <p><%= User.find(comment['user_id']).username %></p>
     <p><%= comment['comment_time'] %></p>
     <img src="<%= comment['image_url'] %>" alt="" height=100px;>

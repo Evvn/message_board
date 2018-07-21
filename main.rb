@@ -116,6 +116,7 @@ get '/post/:id' do
   erb :post
 end
 
+# post new comment on 'post' page
 post '/comment/new' do
 # if user is not logged in, redirect to login page
   redirect '/login' unless logged_in?
@@ -131,18 +132,18 @@ post '/comment/new' do
   redirect "/post/#{ params[:post_id] }"
 end
 
-# <% @comments.each do |comment| %>
-#   <div>
-#     <p><%= User.find(comment['user_id']).username %></p>
-#     <p><%= comment['comment_time'] %></p>
-#     <p><%= comment['content'] %></p>
-#   </div>
-# <% end %>
-#
-# <form action="/comment/new" method="post">
-#   <label for="">image_url</label>
-#   <input type="text" name="image_url">
-#   <label for="">post content</label>
-#   <textarea name="content"></textarea>
-#   <button>Send it!</button>
-# </form>
+# delete post functionality
+delete '/post/:id' do
+  post = Post.find( params[:id] )
+  post.destroy
+
+  redirect '/'
+end
+
+# delete comment functionality
+delete '/comment/:id' do
+  comment = Comment.find( params[:id] )
+  comment.destroy
+
+  redirect "/post/#{ params[:post_id] }"
+end
