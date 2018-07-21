@@ -1,0 +1,32 @@
+<h1>View post</h1>
+<a href="/">home</a>
+
+<% if current_user.admin == "1" %>
+  <form action="/posts/<%= @post['id'] %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button>delete</button>
+  </form>
+<% end %>
+
+<div>
+  <%= User.find(@post['user_id']).username %>
+  <%= @post['post_time']%>
+  <img src="<%= @post['image_url'] %>" alt="" height=100px;>
+  <%= @post['content'] %>
+</div>
+
+<% @comments.each do |comment| %>
+  <div>
+    <p><%= User.find(comment['user_id']).username %></p>
+    <p><%= comment['comment_time'] %></p>
+    <p><%= comment['content'] %></p>
+  </div>
+<% end %>
+
+<form action="/comment/new" method="post">
+  <label for="">image_url</label>
+  <input type="text" name="image_url">
+  <label for="">post content</label>
+  <textarea name="content"></textarea>
+  <button>Send it!</button>
+</form>

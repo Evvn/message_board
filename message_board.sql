@@ -21,7 +21,12 @@ CREATE TABLE posts (
 CREATE TABLE comments (
   id SERIAL4 PRIMARY KEY,
   content TEXT NOT NULL,
+  comment_time VARCHAR(100),
   post_id INTEGER NOT NULL,
   FOREIGN KEY (post_id) REFERENCES posts (id) ON DELETE CASCADE,
-  comment_time VARCHAR(100)
+  comment_time VARCHAR(100),
+  user_id INTEGER NOT NULL,
+  FOREIGN KEY (post_id) REFERENCES posts (id) ON DELETE CASCADE,
+  comment_time VARCHAR(100),
+  FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );

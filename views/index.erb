@@ -11,6 +11,7 @@
     <%= post.post_time%>
     <img src="<%= post['image_url'] %>" alt="" height=100px;>
     <%= post['content'] %>
+    <a href="/post/<%= post['id'] %>">View post</a>
   </div>
 
 <% end %>

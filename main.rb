@@ -21,6 +21,7 @@ helpers do
 
 end
 
+# direct user if logged in to index, or if not logged in to login page
 get '/' do
   # if user is not logged in, redirect to login page
   redirect '/login' unless logged_in?
@@ -35,6 +36,7 @@ get '/login' do
   erb :login
 end
 
+# log in user and add them to session if details are correct
 post '/session' do
   # grab email and password(params)
   # find the user by username
@@ -51,6 +53,7 @@ post '/session' do
 
 end
 
+# log out user from current session
 delete '/session' do
   # delete the session
   session[:user_id] = nil
@@ -63,6 +66,7 @@ get '/new_user' do
   erb :new_user
 end
 
+# create a new user
 post '/create_user' do
     # check that params are not empty
     if params[:username] == "" || params[:password] == ""
@@ -79,11 +83,13 @@ post '/create_user' do
     redirect '/'
 end
 
+# redirect to new post page
 get '/new_post' do
 
   erb :new_post
 end
 
+# create new post
 post '/post/new' do
   # get inputs from new post form
   post = Post.new
@@ -95,4 +101,12 @@ post '/post/new' do
 
   # get post redirect
   redirect '/'
+end
+
+# show post details by id
+get '/post/:id' do
+  @post = Post.find( params[:id] )
+  @comments = @post.comments
+
+  erb :post
 end
