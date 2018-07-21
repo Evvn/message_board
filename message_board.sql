@@ -22,6 +22,7 @@ CREATE TABLE comments (
   id SERIAL4 PRIMARY KEY,
   content TEXT NOT NULL,
   comment_time VARCHAR(100),
+  image_url VARCHAR(400),
   post_id INTEGER NOT NULL,
   FOREIGN KEY (post_id) REFERENCES posts (id) ON DELETE CASCADE,
   comment_time VARCHAR(100),

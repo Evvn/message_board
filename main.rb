@@ -85,6 +85,8 @@ end
 
 # redirect to new post page
 get '/new_post' do
+  # if user is not logged in, redirect to login page
+  redirect '/login' unless logged_in?
 
   erb :new_post
 end
@@ -105,8 +107,42 @@ end
 
 # show post details by id
 get '/post/:id' do
+  # if user is not logged in, redirect to login page
+  redirect '/login' unless logged_in?
+
   @post = Post.find( params[:id] )
   @comments = @post.comments
 
   erb :post
 end
+
+post '/comment/new' do
+# if user is not logged in, redirect to login page
+  redirect '/login' unless logged_in?
+
+  comment = Comment.new
+  comment.image_url = params[:image_url]
+  comment.content = params[:content]
+  comment.post_id = params[:post_id]
+  comment.comment_time = Time.now
+  comment.user_id = current_user.id
+  comment.save
+
+  redirect "/post/#{ params[:post_id] }"
+end
+
+# <% @comments.each do |comment| %>
+#   <div>
+#     <p><%= User.find(comment['user_id']).username %></p>
+#     <p><%= comment['comment_time'] %></p>
+#     <p><%= comment['content'] %></p>
+#   </div>
+# <% end %>
+#
+# <form action="/comment/new" method="post">
+#   <label for="">image_url</label>
+#   <input type="text" name="image_url">
+#   <label for="">post content</label>
+#   <textarea name="content"></textarea>
+#   <button>Send it!</button>
+# </form>

@@ -19,12 +19,14 @@
   <div>
     <p><%= User.find(comment['user_id']).username %></p>
     <p><%= comment['comment_time'] %></p>
+    <img src="<%= comment['image_url'] %>" alt="" height=100px;>
     <p><%= comment['content'] %></p>
   </div>
 <% end %>
 
 <form action="/comment/new" method="post">
-  <label for="">image_url</label>
+  <input type="hidden" name="post_id" value="<%= @post['id'] %>">
+  <label for="">image url</label>
   <input type="text" name="image_url">
   <label for="">post content</label>
   <textarea name="content"></textarea>
