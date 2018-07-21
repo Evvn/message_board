@@ -1,19 +1,37 @@
-<h1>Talk about something</h1>
+<div class="login_header">
 
-<form action="/new_post" method="get">
-  <button>create a post</button>
-</form>
+  <h1>Talk about something.</h1>
 
-<% @posts.each do |post| %>
+  <form action="/session" method="post" class="current_user">
+    <h4>Hi <%= current_user.username%> <% if current_user.admin == "1" %> [A]</h4> <% end %>
+    <input type="hidden" name="_method" value="delete">
+    <button>logout</button>
+  </form>
 
-  <div>
-    <%= User.find(post.user_id).username %>
-    <%= post.post_time%>
-    <img src="<%= post['image_url'] %>" alt="" height=100px;>
-    <%= post['content'] %>
-    <form action="/post/<%= post['id'] %>">
-      <button>view post</button>
-    </form>
-  </div>
+</div>
 
-<% end %>
+<div class="post_container">
+
+  <form action="/new_post" method="get" class="create_post_button">
+    <button>create a post</button>
+  </form>
+
+  <% @posts.each do |post| %>
+
+    <div class="post">
+      <a href="<%= post['image_url'] %>" target="_blank"><img src="<%= post['image_url'] %>" alt="" height=100px;></a>
+      <b><%= User.find(post.user_id).username %></b>
+      <span class="date"><%= post.post_time%></span>
+      <b>#<%= post['id'] %></b>
+      <%= post['content'] %>
+      <form action="/post/<%= post['id'] %>">
+        <button>view thread [<%= Comment.where(post_id: post['id']).length %>]</button>
+      </form>
+    </div>
+
+  <% end %>
+</div>
+
+<div class="login_footer">
+
+</div>

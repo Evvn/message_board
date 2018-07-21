@@ -1,41 +1,51 @@
-<h1>View post</h1>
-<a href="/">home</a>
+<div class="login_header">
 
-<% if current_user.admin == "1" %>
-  <form action="/post/<%= @post['id'] %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <button>delete post [A]</button>
-  </form>
-<% end %>
+  <h1>#<%= @post['id'] %></h1>
+  <a href="/"><h2>&larr; Back</h2></a>
 
-<div>
-  <%= User.find(@post['user_id']).username %>
-  <%= @post['post_time']%>
-  <img src="<%= @post['image_url'] %>" alt="" height=100px;>
-  <%= @post['content'] %>
 </div>
 
-<% @comments.each do |comment| %>
-  <div>
-    <% if current_user.admin == "1" %>
-      <form action="/comment/<%= comment['id'] %>" method="post">
-        <input type="hidden" name="post_id" value="<%= @post['id'] %>">
-        <input type="hidden" name="_method" value="delete">
-        <button>delete comment [A]</button>
-      </form>
-    <% end %>
-    <p><%= User.find(comment['user_id']).username %></p>
-    <p><%= comment['comment_time'] %></p>
-    <img src="<%= comment['image_url'] %>" alt="" height=100px;>
-    <p><%= comment['content'] %></p>
-  </div>
-<% end %>
+<div class="post_container">
 
-<form action="/comment/new" method="post">
-  <input type="hidden" name="post_id" value="<%= @post['id'] %>">
-  <label for="">image url</label>
-  <input type="text" name="image_url">
-  <label for="">post content</label>
-  <textarea name="content"></textarea>
-  <button>Send it!</button>
-</form>
+  <% if current_user.admin == "1" %>
+    <form action="/post/<%= @post['id'] %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>delete post [A]</button>
+    </form>
+  <% end %>
+
+  <div class="post">
+    <a href="<%= @post['image_url'] %>" target="_blank"><img src="<%= @post['image_url'] %>" alt="" height=100px;></a>
+    <b><%= User.find(@post['user_id']).username %></b>
+    <span class="date"><%= @post['post_time']%></span>
+    <b>#<%= @post['id'] %></b>
+    <%= @post['content'] %>
+  </div>
+
+  <% @comments.each do |comment| %>
+    <div class="post">
+      <a href="<%= comment['image_url'] %>" target="_blank"><img src="<%= comment['image_url'] %>" alt="" height=100px;></a>
+      <b><p><%= User.find(comment['user_id']).username %></p></b>
+      <span class="date"><%= comment['comment_time'] %></span>
+      <b>#<%= comment['id'] %></b>
+      <p><%= comment['content'] %></p>
+      <% if current_user.admin == "1" %>
+        <form action="/comment/<%= comment['id'] %>" method="post">
+          <input type="hidden" name="post_id" value="<%= @post['id'] %>">
+          <input type="hidden" name="_method" value="delete">
+          <button>delete comment [A]</button>
+        </form>
+      <% end %>
+    </div>
+  <% end %>
+
+  <form action="/comment/new" method="post">
+    <input type="hidden" name="post_id" value="<%= @post['id'] %>">
+    <label for="">image url</label>
+    <input type="text" name="image_url" autocomplete="off">
+    <label for="">post content</label>
+    <textarea name="content"></textarea>
+    <button>Send it!</button>
+  </form>
+
+</div>

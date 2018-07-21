@@ -1,11 +1,14 @@
-<h1>create new post</h1>
+<div class="login_header">
 
-<a href="/">Home</a>
+  <h1>create new post</h1>
+  <a href="/"><h2>&larr; Back</h2></a>
 
-<form action="/post/new" method="post">
-  <label for="">image_url</label>
-  <input type="text" name="image_url">
-  <label for="">post content</label>
-  <textarea name="content"></textarea>
-  <button>Send it!</button>
-</form>
+</div>
+
+  <form action="/post/new" method="post">
+    <label for="">image_url</label>
+    <input type="text" name="image_url" autocomplete="off">
+    <label for="">post content</label>
+    <textarea name="content"></textarea>
+    <button>Send it!</button>
+  </form>

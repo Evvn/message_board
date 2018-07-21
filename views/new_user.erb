@@ -1,9 +1,21 @@
-<h1>new user</h1>
+<div class="login_header">
 
-<form action="/create_user" method="post">
-  <label for="">username</label>
-  <input type="text" name="username">
-  <label for="">password</label>
-  <input type="password" name="password">
-  <button>create</button>
-</form>
+  <h1>Join in.</h1>
+  <a href="/"><h2>&larr; Back</h2></a>
+
+</div>
+
+<div class="login_form">
+
+  <form action="/create_user" method="post">
+    <input type="text" name="username" placeholder="Who are you?" autocomplete="off">
+    <input type="password" name="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+    <br>
+    <button>&rarr;</button>
+  </form>
+
+</div>
+
+<div class="login_footer">
+  <h4>by Evan.</h4>
+</div>

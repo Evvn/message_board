@@ -6,6 +6,45 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   background-color: #131313;
   color: white;
+  margin: 15px;
+}
+
+button {
+  font-size: 75%;
+  background-color: #131313;
+  color: white;
+  border: 4px solid #3c3c3c;
+  margin-bottom: 10px;
+  transition: .8s ease all;
+}
+
+button:hover {
+  background-color: white;
+  color: #131313;
+  transition: .8s ease all;
+}
+
+button:focus {
+  outline: none;
+}
+
+h2 {
+  color: white;
+  font-size: 150%;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2:hover {
+  color: #fac3ff;
+  transition: .8s ease all;
+}
+
+h4:hover {
+  color: #fac3ff;
+  transition: .8s ease all;
 }
 
 .grid-container {
@@ -18,7 +57,7 @@ body {
 .login_header {
   grid-area: 1 / 1 / 1 / 5;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   height: 20vh;
 }
@@ -30,12 +69,14 @@ body {
   animation: CustomAnimation 15s ease infinite;
   color: #171717;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   text-align: center;
   flex-direction: column;
   height: 60vh;
   width: 60vh;
+  margin: 0 auto;
+  min-width: 350px;
 }
 
 .login_form input {
@@ -49,7 +90,7 @@ body {
 }
 
 .login_form input:focus {
-  background-color: rgba(19,19,19,.6);
+  background-color: rgba(19,19,19,.7);
   outline: none;
   transition: .8s ease all;
 }
@@ -76,7 +117,7 @@ input:-webkit-autofill {
 }
 
 .login_form button:hover {
-  background-color: rgba(19,19,19,.6);
+  background-color: rgba(19,19,19,.7);
   outline: none;
   transition: .8s ease all;
 }
@@ -103,4 +144,26 @@ input:-webkit-autofill {
   justify-content: flex-end;
   align-items: center;
   height: 20vh;
+}
+
+.post {
+  border: 4px solid #3c3c3c;
+  background-color: #f5cfff;
+  color: #131313;
+  margin: 10px;
+  padding: 10px;
+}
+
+.post_container {
+  grid-area: 4 / 1 / 2 / 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.date {
+  font-size: 75%;
+}
+
+.current_user {
+  text-align: right;
 }
