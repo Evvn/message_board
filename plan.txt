@@ -8,7 +8,7 @@
 
 [X] If logged in, send to 'index'
 
-[X] If not, send to 'login.erb'
+[X] If not, send to 'login'
 
 [X] On login page, prompt username and password
 
@@ -29,3 +29,5 @@
 [X] Allow users to create a new post (requires image AND content)
 
 [X] Allow users to comment on an existing post (requires content OR image)
+
+[] Beautify with CSS

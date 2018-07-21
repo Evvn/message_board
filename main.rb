@@ -32,7 +32,10 @@ get '/' do
 end
 
 get '/login' do
-
+  if logged_in?
+  redirect '/'
+  end
+  
   erb :login
 end
 
