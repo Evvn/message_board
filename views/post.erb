@@ -7,17 +7,20 @@
 
 <div class="posts_container">
 
-  <% if current_user.admin == "1" %>
-    <form action="/post/<%= @post['id'] %>" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <button>delete [A]</button>
-    </form>
-  <% end %>
+  <form action="/new_comment/<%= @post['id'] %>" method="get">
+    <button>comment</button>
+  </form>
 
   <div class="post">
 
     <div class="post_image">
       <a href="<%= @post['image_url'] %>" target="_blank"><img src="<%= @post['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px"></a>
+      <% if current_user.admin == "1" %>
+        <form action="/post/<%= @post['id'] %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button>delete [A]</button>
+        </form>
+      <% end %>
     </div>
 
     <div class="post_details">
@@ -65,13 +68,10 @@
     </div>
   <% end %>
 
-  <form action="/comment/new" method="post">
-    <input type="hidden" name="post_id" value="<%= @post['id'] %>">
-    <label for="">image url</label>
-    <input type="text" name="image_url" autocomplete="off">
-    <label for="">post content</label>
-    <textarea name="content"></textarea>
-    <button>Send it!</button>
-  </form>
+</div>
+
+<div class="login_footer">
+
+  <h4>by Evan.</h4>
 
 </div>

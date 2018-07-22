@@ -36,6 +36,8 @@
 
 [X] Update last_activity in post table with post or comment time
 
+[X] Limit character count in post creation
+
 [] When creating new user, prompt confirmation of password
 
 [] Limit number of max posts (100?)

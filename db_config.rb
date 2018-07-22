@@ -5,4 +5,9 @@ options = {
   database: 'message_board'
 }
 
-ActiveRecord::Base.establish_connection(options)
+# remove this line before going live
+# ActiveRecord::Base.establish_connection(options)
+
+
+# add this line before going live
+ActiveRecord::Base.establish_connection( ENV['DATABASE_URL'] || options)

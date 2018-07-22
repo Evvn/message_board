@@ -1,5 +1,6 @@
 require 'sinatra'
-require 'sinatra/reloader'
+# comment this out before going live on heroku
+# require 'sinatra/reloader'
 require 'pg'
 require 'pry'
 require_relative "db_config"
@@ -29,6 +30,11 @@ get '/' do
   @posts = Post.all.sort_by{ |p| p.last_activity }.reverse
 
   erb :index
+end
+
+not_found do
+  status 404
+  erb :pnf
 end
 
 get '/login' do
@@ -103,6 +109,21 @@ get '/new_post' do
   erb :new_post
 end
 
+# redirect to new comment page
+get '/new_comment/:id' do
+  # if user is not logged in, redirect to login page
+  redirect '/login' unless logged_in?
+
+  @post = Post.find( params[:id] )
+
+  erb :new_comment
+end
+
+get '/new_comment' do
+
+  redirect '/'
+end
+
 # create new post
 post '/post/new' do
   # get inputs from new post form
@@ -122,6 +143,11 @@ end
 get '/post/:id' do
   # if user is not logged in, redirect to login page
   redirect '/login' unless logged_in?
+
+  # redirect if post not found
+  if Post.find_by(id: params[:id] ) == nil
+    redirect '/404'
+  end
 
   @post = Post.find( params[:id] )
   @comments = @post.comments

@@ -4,4 +4,5 @@ require_relative "models/post"
 require_relative "models/comment"
 require_relative "models/user"
 
-binding.pry
+# commenting this out just in case, don't want to pause production server :)
+# binding.pry
