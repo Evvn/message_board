@@ -14,6 +14,7 @@ CREATE TABLE posts (
   image_url VARCHAR(400),
   content TEXT NOT NULL,
   post_time VARCHAR(100),
+  last_activity VARCHAR(100),
   user_id INTEGER NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );

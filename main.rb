@@ -26,7 +26,7 @@ get '/' do
   # if user is not logged in, redirect to login page
   redirect '/login' unless logged_in?
 
-  @posts = Post.all
+  @posts = Post.all.sort_by{ |p| p.last_activity }.reverse
 
   erb :index
 end
@@ -101,6 +101,7 @@ post '/post/new' do
   post.image_url = params[:image_url]
   post.content = params[:content]
   post.post_time = Time.now.strftime("%H:%M:%S %-d %b %y")
+  post.last_activity = Time.now.strftime("%H:%M:%S %-d %b %y")
   post.user_id = current_user.id
   post.save
 
@@ -131,6 +132,11 @@ post '/comment/new' do
   comment.comment_time = Time.now.strftime("%H:%M:%S %-d %b %y")
   comment.user_id = current_user.id
   comment.save
+
+  # update latest_activity of post to comment time
+  post = Post.find( params[:post_id] )
+  post.last_activity = Time.now.strftime("%H:%M:%S %-d %b %y")
+  post.save
 
   redirect "/post/#{ params[:post_id] }"
 end

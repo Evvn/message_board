@@ -31,3 +31,12 @@
 [X] Allow users to comment on an existing post (requires content OR image)
 
 [] Beautify with CSS
+
+[X] Sort posts by most recent activity (newest, sort by post with most recent comment)
+
+[X] Update last_activity in post table with post or comment time
+
+Notes:
+
+Sort posts array by content in alphabetical, use a variation to sort by latest comment
+Post.all.sort_by{ |p| p.content.downcase }
