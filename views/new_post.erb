@@ -1,14 +1,22 @@
 <div class="login_header">
 
-  <h1>create new post</h1>
+  <h1>Post something.</h1>
   <a href="/"><h2>&larr; Back</h2></a>
 
 </div>
 
+<div class="new_post">
+
   <form action="/post/new" method="post">
-    <label for="">image_url</label>
-    <input type="text" name="image_url" autocomplete="off">
-    <label for="">post content</label>
-    <textarea name="content"></textarea>
-    <button>Send it!</button>
+    <input type="text" name="image_url" autocomplete="off" placeholder="image url">&nbsp;
+    <textarea name="content" rows="5" cols="38" style="resize:none" maxlength="2000"></textarea>
+    <br><button>Send it!</button>
   </form>
+
+</div>
+
+<div class="login_footer">
+
+  <h4>by Evan.</h4>
+
+</div>

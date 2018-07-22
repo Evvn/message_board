@@ -10,14 +10,14 @@
   <% if current_user.admin == "1" %>
     <form action="/post/<%= @post['id'] %>" method="post">
       <input type="hidden" name="_method" value="delete">
-      <button>delete post [A]</button>
+      <button>delete [A]</button>
     </form>
   <% end %>
 
   <div class="post">
 
     <div class="post_image">
-      <a href="<%= @post['image_url'] %>" target="_blank"><img src="<%= @post['image_url'] %>" alt="" height=100px;></a>
+      <a href="<%= @post['image_url'] %>" target="_blank"><img src="<%= @post['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px"></a>
     </div>
 
     <div class="post_details">
@@ -39,12 +39,12 @@
     <div class="post">
 
       <div class="post_image">
-        <a href="<%= comment['image_url'] %>" target="_blank"><img src="<%= comment['image_url'] %>" alt="" height=100px;></a>
+        <a href="<%= comment['image_url'] %>" target="_blank"><img src="<%= comment['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px"></a>
         <% if current_user.admin == "1" %>
           <form action="/comment/<%= comment['id'] %>" method="post">
             <input type="hidden" name="post_id" value="<%= @post['id'] %>">
             <input type="hidden" name="_method" value="delete">
-            <button>delete comment [A]</button>
+            <button>delete [A]</button>
           </form>
         <% end %>
       </div>

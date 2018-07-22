@@ -39,6 +39,11 @@ get '/login' do
   erb :login
 end
 
+get '/session' do
+
+  redirect '/'
+end
+
 # log in user and add them to session if details are correct
 post '/session' do
   # grab email and password(params)
@@ -74,6 +79,10 @@ post '/create_user' do
     # check that params are not empty
     if params[:username] == "" || params[:password] == ""
       redirect '/new_user'
+    end
+    # check if password confirmation is incorrect
+    if params[:password] != params[:password_confirm]
+      redirect 'new_user'
     end
     # add new user object to db
     # set admin rights to false (0)

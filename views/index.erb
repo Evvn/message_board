@@ -21,10 +21,7 @@
     <div class="post">
 
       <div class="post_image">
-        <a href="<%= post['image_url'] %>" target="_blank"><img src="<%= post['image_url'] %>" alt="" width=150px;></a>
-        <form action="/post/<%= post['id'] %>">
-          <button>view thread [<%= Comment.where(post_id: post['id']).length %>]</button>
-        </form>
+        <a href="<%= post['image_url'] %>" target="_blank"><img src="<%= post['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px"></a>
       </div>
 
       <div class="post_details">
@@ -33,7 +30,10 @@
       </div>
 
       <div class="post_number">
-        <b>#<%= post['id'] %></b>
+        <form action="/post/<%= post['id'] %>">
+          <button>[<%= Comment.where(post_id: post['id']).length %>] view thread</button>
+          <b>#<%= post['id'] %></b>
+        </form>
       </div>
 
       <div class="post_content">
@@ -46,5 +46,5 @@
 </div>
 
 <div class="login_footer">
-
+  <h4>by Evan.</h4>
 </div>

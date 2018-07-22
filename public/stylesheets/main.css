@@ -25,6 +25,9 @@ button:hover {
 
 button:focus {
   outline: none;
+  background-color: white;
+  color: #131313;
+  transition: .8s ease all;
 }
 
 h2 {
@@ -94,6 +97,10 @@ h4:hover {
   transition: .8s ease all;
 }
 
+input:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
 input::-webkit-input-placeholder {
 color: white;
 }
@@ -122,7 +129,9 @@ input:-webkit-autofill {
 }
 
 .login_form button:focus {
+  background-color: rgba(19,19,19,.7);
   outline: none;
+  transition: .8s ease all;
 }
 
 @keyframes CustomAnimation {
@@ -188,4 +197,74 @@ input:-webkit-autofill {
 
 .current_user {
   text-align: right;
+}
+
+.new_post {
+  grid-area: 2 / 2 / 2 / 4;
+  border: 5px solid white;
+  background: linear-gradient(314deg, rgb(27, 201, 216), rgb(212, 129, 227), rgb(216, 187, 222)) 0% 0% / 300% 300%;
+  animation: CustomAnimation 15s ease infinite;
+  color: #171717;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height: 60vh;
+  width: 60vh;
+  margin: 0 auto;
+  min-width: 350px;
+}
+
+.new_post input {
+  text-align: center;
+  font-size: 200%;
+  background-color: rgba(19,19,19,.2);
+  color: white;
+  padding: 4px;
+  border: 4px solid white;
+  margin-bottom: 10px;
+}
+
+.new_post input:focus {
+  background-color: rgba(19,19,19,.7);
+  outline: none;
+  transition: .8s ease all;
+}
+
+.new_post textarea {
+  text-align: left;
+  font-size: 100%;
+  background-color: rgba(19,19,19,.2);
+  color: white;
+  padding: 4px;
+  border: 4px solid white;
+  margin-bottom: 10px;
+}
+
+.new_post textarea:focus {
+  background-color: rgba(19,19,19,.7);
+  outline: none;
+  transition: .8s ease all;
+}
+
+.new_post button {
+  font-size: 100%;
+  background-color: rgba(19,19,19,.2);
+  color: white;
+  padding: 4px;
+  border: 4px solid white;
+  margin-bottom: 10px;
+}
+
+.new_post button:hover {
+  background-color: rgba(19,19,19,.7);
+  outline: none;
+  transition: .8s ease all;
+}
+
+.new_post button:focus {
+  background-color: rgba(19,19,19,.7);
+  outline: none;
+  transition: .8s ease all;
 }

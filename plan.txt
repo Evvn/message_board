@@ -36,6 +36,10 @@
 
 [X] Update last_activity in post table with post or comment time
 
+[] When creating new user, prompt confirmation of password
+
+[] Limit number of max posts (100?)
+
 Notes:
 
 Sort posts array by content in alphabetical, use a variation to sort by latest comment
