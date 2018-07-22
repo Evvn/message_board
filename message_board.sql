@@ -1,7 +1,5 @@
 CREATE DATABASE message_board;
 
--- t.strftime("Posted: %H:%M %d%m%y")
-
 CREATE TABLE users (
   id SERIAL4 PRIMARY KEY,
   username VARCHAR(300),
