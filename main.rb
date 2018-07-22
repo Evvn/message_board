@@ -1,4 +1,5 @@
 require 'sinatra'
+configure { set :server, :puma }
 # comment this out before going live on heroku
 # require 'sinatra/reloader'
 require 'pg'
