@@ -131,8 +131,8 @@ post '/post/new' do
   post = Post.new
   post.image_url = params[:image_url]
   post.content = params[:content]
-  post.post_time = Time.now.strftime("%H:%M:%S %-d %b %y")
-  post.last_activity = Time.now.strftime("%H:%M:%S %-d %b %y")
+  post.post_time = (Time.now.utc + 10.hours)strftime("%-d/%m/%y %H:%M:%S")
+  post.last_activity = (Time.now.utc + 10.hours)strftime("%-d/%m/%y %H:%M:%S")
   post.user_id = current_user.id
   post.save
 
@@ -165,13 +165,13 @@ post '/comment/new' do
   comment.image_url = params[:image_url]
   comment.content = params[:content]
   comment.post_id = params[:post_id]
-  comment.comment_time = Time.now.strftime("%H:%M:%S %-d %b %y")
+  comment.comment_time = (Time.now.utc + 10.hours)strftime("%-d/%m/%y %H:%M:%S")
   comment.user_id = current_user.id
   comment.save
 
   # update latest_activity of post to comment time
   post = Post.find( params[:post_id] )
-  post.last_activity = Time.now.strftime("%H:%M:%S %-d %b %y")
+  post.last_activity = (Time.now.utc + 10.hours)strftime("%-d/%m/%y %H:%M:%S")
   post.save
 
   redirect "/post/#{ params[:post_id] }"
