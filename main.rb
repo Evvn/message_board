@@ -6,7 +6,7 @@ require 'pg'
 require 'pry'
 # use erubis gem to automatically escape html inputs
 require 'erubis'
-set :erb, escape_html => true
+set :erb, :escape_html => true
 require_relative "db_config"
 require_relative "models/post"
 require_relative "models/comment"
