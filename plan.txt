@@ -30,7 +30,15 @@
 
 [X] Allow users to comment on an existing post (requires content OR image)
 
+[] STOP USERS FROM INJECTING HTML
+
+[] Preview recent comments on threads
+
+[] Quote functionality ">"
+
 [] Beautify with CSS
+
+[] Toggle invert color for bb
 
 [X] Sort posts by most recent activity (newest, sort by post with most recent comment)
 
