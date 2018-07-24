@@ -24,7 +24,7 @@
     </div>
 
     <div class="post_details">
-      <b><%= User.find(@post['user_id']).username %></b>
+      <b><%= esc User.find(@post['user_id']).username %></b>
       <span class="date"><%= @post['post_time']%></span>
     </div>
 
@@ -53,7 +53,7 @@
       </div>
 
       <div class="post_details">
-        <b><%= User.find(comment['user_id']).username %></b>
+        <b><%= esc User.find(comment['user_id']).username %></b>
         <span class="date"><%= comment['comment_time'] %></span>
       </div>
 

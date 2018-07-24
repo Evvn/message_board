@@ -3,7 +3,7 @@
   <h1><span class="logo">&there4;</span> Talk about something.</h1>
 
   <form action="/session" method="post" class="current_user">
-    <h4>Hi <%= current_user.username%> <% if current_user.admin == "1" %> [A]</h4> <% end %>
+    <h4>Hi <%= esc current_user.username%> <% if current_user.admin == "1" %> [A]</h4> <% end %>
     <input type="hidden" name="_method" value="delete">
     <button>logout</button>
   </form>
@@ -25,7 +25,7 @@
       </div>
 
       <div class="post_details">
-        <b><%= User.find(post.user_id).username %></b>
+        <b><%= esc User.find(post.user_id).username %></b>
         <span class="date"><%= post.post_time%></span>
       </div>
 
