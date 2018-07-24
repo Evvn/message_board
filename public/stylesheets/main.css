@@ -14,6 +14,10 @@ body {
   color: #1d1d1d;
 }
 
+.logo {
+  font-size: 200%;
+}
+
 button {
   font-size: 75%;
   background-color: #1d1d1d;
