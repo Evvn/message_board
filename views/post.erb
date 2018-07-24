@@ -33,7 +33,7 @@
     </div>
 
     <div class="post_content">
-      <%= @post['content'] %>
+      <%= esc @post['content'] %>
     </div>
 
   </div>
@@ -62,7 +62,7 @@
       </div>
 
       <div class="post_content">
-        <p><%= comment['content'] %></p>
+        <p><%= esc comment['content'] %></p>
       </div>
 
     </div>

@@ -21,6 +21,11 @@ helpers do
     !!current_user
   end
 
+  # Rack::Utils helper to escape html outputs
+  def esc(text)
+    Rack::Utils.escape_html(text)
+  end
+
 end
 
 # direct user if logged in to index, or if not logged in to login page
