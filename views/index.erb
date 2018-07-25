@@ -42,30 +42,34 @@
 
     </div>
 
-    <% post.comments.last(3).each do |comment| %>
+    <div class="comments_container">
 
-    <div class="post">
+      <% post.comments.last(3).each do |comment| %>
 
-      <div class="post_image">
-        <a href="<%= comment.image_url %>" target="_blank"><img src="<%= comment['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px"></a>
+      <div class="comment">
+
+        <div class="comment_image">
+          <a href="<%= comment.image_url %>" target="_blank"><img src="<%= comment['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px"></a>
+        </div>
+
+        <div class="comment_details">
+          <b><%= esc User.find(comment.user_id).username %></b>
+          <span class="date"><%= comment.comment_time %></span>
+        </div>
+
+        <div class="comment_number">
+          <b>#<%= comment.id %></b>
+        </div>
+
+        <div class="comment_content">
+          <p><%= esc comment.content %></p>
+        </div>
+
       </div>
 
-      <div class="post_details">
-        <b><%= esc User.find(comment.user_id).username %></b>
-        <span class="date"><%= comment.comment_time %></span>
-      </div>
-
-      <div class="post_number">
-        <b>#<%= comment.id %></b>
-      </div>
-
-      <div class="post_content">
-        <p><%= esc comment.content %></p>
-      </div>
+      <% end %>
 
     </div>
-
-    <% end %>
 
   <% end %>
 </div>
