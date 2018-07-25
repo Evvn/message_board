@@ -52,11 +52,11 @@
 
       <div class="comment_image">
 
-        <img src="<%= @comment['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px" onclick="document.getElementById('expand_image_comment<%= @comment['id'] %>').style.display='flex'">
+        <img src="<%= comment['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px" onclick="document.getElementById('expand_image_comment<%= comment['id'] %>').style.display='flex'">
 
-        <div class="modal_overlay" id="expand_image_comment<%= @comment['id'] %>" onclick="document.getElementById('expand_image_comment<%= @comment['id'] %>').style.display='none'">
+        <div class="modal_overlay" id="expand_image_comment<%= comment['id'] %>" onclick="document.getElementById('expand_image_comment<%= comment['id'] %>').style.display='none'">
 
-            <img src="<%= @comment['image_url'] %>" style="max-height: 90vh; max-width: 90vw">
+            <img src="<%= comment['image_url'] %>" style="max-height: 90vh; max-width: 90vw">
 
         </div>
 
