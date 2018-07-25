@@ -39,9 +39,9 @@
   </div>
 
   <% @comments.each do |comment| %>
-    <div class="post">
+    <div class="comment">
 
-      <div class="post_image">
+      <div class="comment_image">
         <a href="<%= comment['image_url'] %>" target="_blank"><img src="<%= comment['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px"></a>
         <% if current_user.admin == "1" %>
           <form action="/comment/<%= comment['id'] %>" method="post">
@@ -52,16 +52,16 @@
         <% end %>
       </div>
 
-      <div class="post_details">
+      <div class="comment_details">
         <b><%= esc User.find(comment['user_id']).username %></b>
         <span class="date"><%= comment['comment_time'] %></span>
       </div>
 
-      <div class="post_number">
+      <div class="comment_number">
         <b>#<%= comment['id'] %></b>
       </div>
 
-      <div class="post_content">
+      <div class="comment_content">
         <p><%= esc comment['content'] %></p>
       </div>
 
