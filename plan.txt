@@ -66,8 +66,6 @@
 
 [X] Expand images to full size on click
 
-[] Expand all images across app, not just posts on main page
-
 Notes:
 
 Sort posts array by content in alphabetical, use a variation to sort by latest comment
