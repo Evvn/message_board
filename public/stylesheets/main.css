@@ -211,6 +211,7 @@ input:-webkit-autofill {
   grid-template-columns: 1 1 1 1;
   grid-template-rows: 1 1 1;
   min-width: 550px;
+  margin-left: 10vw;
 }
 
 .comment_details {
@@ -233,7 +234,7 @@ input:-webkit-autofill {
 }
 
 .comments_container {
-  grid-area: 4 / 2 / 3 / 4;
+  grid-area: 4 / 1 / 2 / 4;
   display: flex;
   flex-direction: column;
 }
