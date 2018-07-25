@@ -345,3 +345,13 @@ input:-webkit-autofill {
   align-self: flex-end;
   flex-direction: column;
 }
+
+.page_numbers a {
+  text-decoration: none;
+  color: #dac6ff;
+  transition: .8s ease all;
+}
+
+.current_page {
+  text-decoration: underline;
+}
