@@ -63,7 +63,7 @@ h4:hover {
   height: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1 1 1;
-  min-width: 750px;
+  min-width: 700px;
 }
 
 .login_header {
