@@ -38,7 +38,7 @@
 
 [] Refactor code
 
-[] Preview recent comments on threads (3?)
+[X] Preview recent comments on threads (3?)
 
 [] Quote functionality ">"
 
