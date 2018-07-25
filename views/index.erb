@@ -21,9 +21,9 @@
     <div class="post">
 
       <div class="post_image">
-        <!-- <a href="<%= post['image_url'] %>" target="_blank"> -->
-          <img src="<%= post['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px" onclick="document.getElementById('expand_image_<%= post['image_url'] %>').style.display='block'">
-        <!-- </a> -->
+          <img id="preview_image_<%= post['image_url'] %>" src="<%= post['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px" onclick="document.getElementById('expand_image_<%= post['image_url'] %>').style.display='block'; document.getElementById('preview_image_<%= post['image_url'] %>').style.display='none'">
+
+          <img id="expand_image_<%= post['image_url'] %>" src="<%= post['image_url'] %>" alt="" style="max-width: 90vw" onclick="document.getElementById('expand_image_<%= post['image_url'] %>').style.display='none'; document.getElementById('preview_image_<%= post['image_url'] %>').style.display='block'; ">
       </div>
 
       <div class="post_details">
@@ -42,10 +42,6 @@
         <%= esc post['content'] %>
       </div>
 
-    </div>
-
-    <div id="expand_image_<%= post['image_url'] %>">
-      <img src="<%= post['image_url'] %>" alt="" onclick="document.getElementById('expand_image_<%= post['image_url'] %>').style.display='none'">
     </div>
 
     <div class="comments_container">
