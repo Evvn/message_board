@@ -70,3 +70,9 @@ Notes:
 
 Sort posts array by content in alphabetical, use a variation to sort by latest comment
 Post.all.sort_by{ |p| p.content.downcase }
+
+
+old image expansion code:
+<!-- <img id="preview_image_post<%= post['id'] %>" src="<%= post['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px" onclick="document.getElementById('expand_image_post<%= post['id'] %>').style.display='block'; document.getElementById('preview_image_post<%= post['id'] %>').style.display='none'">
+
+<img id="expand_image_post<%= post['id'] %>" src="<%= post['image_url'] %>" alt="" style="max-width: 90vw; display: none" onclick="document.getElementById('expand_image_post<%= post['id'] %>').style.display='none'; document.getElementById('preview_image_post<%= post['id'] %>').style.display='block'; "> -->
