@@ -33,7 +33,32 @@ get '/' do
   # if user is not logged in, redirect to login page
   redirect '/login' unless logged_in?
 
-  @posts = Post.all.sort_by{ |p| p.last_activity }.reverse
+  # @posts = Post.all.sort_by{ |p| p.last_activity }.reverse
+
+  # For page 1
+  @posts = Post.all.sort_by{ |p| p.last_activity }.last(10).reverse
+
+  # Use .last(20) for 2nd page, .last(30) for 3rd page etc
+  # Post.all.sort_by{ |p| p.last_activity }.last(20).reverse.last(10)
+
+  erb :index
+end
+
+get '/page/:page_number' do
+  # if user is not logged in, redirect to login page
+  redirect '/login' unless logged_in?
+
+  if params[:page_number] == '1'
+    redirect '/'
+  end
+
+  load_posts = (params[:page_number] + 0).to_i
+
+  @page_number = params[:page_number]
+  @posts = Post.all.sort_by{ |p| p.last_activity }.last(load_posts).reverse.last(10)
+
+  # Use .last(20) for 2nd page, .last(30) for 3rd page etc
+  # Post.all.sort_by{ |p| p.last_activity }.last(20).reverse.last(10)
 
   erb :index
 end
