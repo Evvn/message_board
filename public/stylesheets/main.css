@@ -348,10 +348,14 @@ input:-webkit-autofill {
 
 .page_numbers a {
   text-decoration: none;
+  color: white;
+}
+
+.page_numbers a:hover {
   color: #dac6ff;
   transition: .8s ease all;
 }
 
 .current_page {
-  text-decoration: underline;
+  visibility: hidden;
 }
