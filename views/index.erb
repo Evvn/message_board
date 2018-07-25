@@ -21,9 +21,9 @@
     <div class="post">
 
       <div class="post_image">
-          <img id="preview_image_<%= post['image_url'] %>" src="<%= post['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px" onclick="document.getElementById('expand_image_<%= post['image_url'] %>').style.display='block'; document.getElementById('preview_image_<%= post['image_url'] %>').style.display='none'">
+          <img id="preview_image_post<%= post['id'] %>" src="<%= post['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px" onclick="document.getElementById('expand_image_post<%= post['id'] %>').style.display='block'; document.getElementById('preview_image_post<%= post['id'] %>').style.display='none'">
 
-          <img id="expand_image_<%= post['image_url'] %>" src="<%= post['image_url'] %>" alt="" style="max-width: 90vw; display: none" onclick="document.getElementById('expand_image_<%= post['image_url'] %>').style.display='none'; document.getElementById('preview_image_<%= post['image_url'] %>').style.display='block'; ">
+          <img id="expand_image_post<%= post['id'] %>" src="<%= post['image_url'] %>" alt="" style="max-width: 90vw; display: none" onclick="document.getElementById('expand_image_post<%= post['id'] %>').style.display='none'; document.getElementById('preview_image_post<%= post['id'] %>').style.display='block'; ">
       </div>
 
       <div class="post_details">
