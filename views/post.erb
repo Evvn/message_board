@@ -14,7 +14,16 @@
   <div class="post">
 
     <div class="post_image">
-      <a href="<%= @post['image_url'] %>" target="_blank"><img src="<%= @post['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px"></a>
+
+      <img src="<%= @post['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px" onclick="document.getElementById('expand_image_post<%= @post['id'] %>').style.display='flex'">
+
+      <div class="modal_overlay" id="expand_image_post<%= @post['id'] %>" onclick="document.getElementById('expand_image_post<%= @post['id'] %>').style.display='none'">
+
+          <img src="<%= @post['image_url'] %>" style="max-height: 90vh; max-width: 90vw">
+
+      </div>
+
+
       <% if current_user.admin == "1" %>
         <form action="/post/<%= @post['id'] %>" method="post">
           <input type="hidden" name="_method" value="delete">

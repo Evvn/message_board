@@ -64,7 +64,9 @@
 
 [] Emoji code support (DT)
 
-[] Expand images to full size on click
+[X] Expand images to full size on click
+
+[] Expand all images across app, not just posts on main page
 
 Notes:
 
