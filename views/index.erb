@@ -31,7 +31,7 @@
 
       <div class="post_number">
         <form action="/post/<%= post['id'] %>">
-          <button>[<%= Comment.where(post_id: post['id']).length %>] view thread</button>
+          <button>[<%= post.comments.length %>] view thread</button>
           <b>#<%= post['id'] %></b>
         </form>
       </div>
@@ -41,6 +41,14 @@
       </div>
 
     </div>
+
+    <% post.comments.last(3).each do |comment| %>
+
+      <div class="comments_preview">
+        post.comments['content']
+      </div>
+
+    <% end %>
 
   <% end %>
 </div>

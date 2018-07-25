@@ -30,9 +30,15 @@
 
 [X] Allow users to comment on an existing post (requires content OR image)
 
-[] STOP USERS FROM INJECTING HTML
+[X] STOP USERS FROM INJECTING HTML
 
-[] Preview recent comments on threads
+[] Write README
+
+[] Image hosting?
+
+[] Refactor code
+
+[] Preview recent comments on threads (3?)
 
 [] Quote functionality ">"
 
@@ -46,9 +52,17 @@
 
 [X] Limit character count in post creation
 
-[] When creating new user, prompt confirmation of password
+[X] When creating new user, prompt confirmation of password
 
 [] Limit number of max posts (100?)
+
+[] Delete thread if comments > 500
+
+[] Pages instead of all posts on one page
+
+[] Emoji code support (DT)
+
+[] Expand images to full size on click
 
 Notes:
 
