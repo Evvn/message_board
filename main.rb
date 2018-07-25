@@ -53,7 +53,7 @@ get '/page/:page_number' do
     redirect '/'
   end
 
-  load_posts = (params[:page_number] + 0).to_i
+  load_posts = (params[:page_number] + '0').to_i
 
   @page_number = params[:page_number]
   @posts = Post.all.sort_by{ |p| p.last_activity }.last(load_posts).reverse.last(10)

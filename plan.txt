@@ -56,9 +56,9 @@
 
 [] Prevent duplicate usernames on registration
 
-[] Limit number of max posts (50)
+[] Limit number of max posts (50) (on post creation, check)
 
-[] Delete thread if comments > 500
+[] Delete thread if comments > 500 (on comment creation, check)
 
 [] Pages instead of all posts on one page
 
