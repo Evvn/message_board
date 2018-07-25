@@ -23,7 +23,7 @@
       <div class="post_image">
           <img id="preview_image_<%= post['image_url'] %>" src="<%= post['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px" onclick="document.getElementById('expand_image_<%= post['image_url'] %>').style.display='block'; document.getElementById('preview_image_<%= post['image_url'] %>').style.display='none'">
 
-          <img id="expand_image_<%= post['image_url'] %>" src="<%= post['image_url'] %>" alt="" style="max-width: 90vw" onclick="document.getElementById('expand_image_<%= post['image_url'] %>').style.display='none'; document.getElementById('preview_image_<%= post['image_url'] %>').style.display='block'; ">
+          <img id="expand_image_<%= post['image_url'] %>" src="<%= post['image_url'] %>" alt="" style="max-width: 90vw; display: none" onclick="document.getElementById('expand_image_<%= post['image_url'] %>').style.display='none'; document.getElementById('preview_image_<%= post['image_url'] %>').style.display='block'; ">
       </div>
 
       <div class="post_details">

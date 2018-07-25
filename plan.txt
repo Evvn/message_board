@@ -54,6 +54,8 @@
 
 [X] When creating new user, prompt confirmation of password
 
+[] Prevent duplicate usernames on registration
+
 [] Limit number of max posts (100?)
 
 [] Delete thread if comments > 500
