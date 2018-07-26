@@ -37,7 +37,7 @@ get '/' do
 
   # For page 1
   @posts = Post.all.sort_by{ |p| p.last_activity }.last(10).reverse
-  @pinned = Post.where("pinned = 1")
+  @pinned = Post.where("pinned = '1'")
   @page_number = '1'
 
   # Use .last(20) for 2nd page, .last(30) for 3rd page etc
