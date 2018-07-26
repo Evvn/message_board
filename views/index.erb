@@ -5,7 +5,7 @@
   <form action="/session" method="post" class="current_user">
     <h4>Hi <%= esc current_user.username%> <% if current_user.admin == "1" %> [A]</h4> <% end %>
     <input type="hidden" name="_method" value="delete">
-    <button>logout</button>
+    <button>Logout.</button>
     <h3>Page <%= @page_number %>.</h3>
   </form>
 
@@ -14,8 +14,84 @@
 <div class="posts_container">
 
   <form action="/<%= @page_number %>/new_post" method="get" class="create_post_button">
-    <button>create a post</button>
+    <button>Create a post.</button>
   </form>
+
+  <!-- Pinned posts -->
+  <% @pinned.each do |post| %>
+
+    <div class="post">
+
+      <div class="post_image">
+
+          <img src="<%= post['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px" onclick="document.getElementById('expand_image_post<%= post['id'] %>').style.display='flex'">
+
+          <div class="modal_overlay" id="expand_image_post<%= post['id'] %>" onclick="document.getElementById('expand_image_post<%= post['id'] %>').style.display='none'">
+
+              <img src="<%= post['image_url'] %>" style="max-height: 90vh; max-width: 90vw">
+
+          </div>
+
+      </div>
+
+      <div class="post_details">
+        <img src="images/pinned.png"><b>[Pinned] </b>
+        <br>
+        <b><%= esc User.find(post.user_id).username %></b>
+        <span class="date"><%= post.post_time%></span>
+      </div>
+
+      <div class="post_number">
+        <form action="/post/<%= @page_number %>/<%= post['id'] %>">
+          <button>[<%= post.comments.length %>] View thread.</button>
+          <b>#<%= post['id'] %></b>
+        </form>
+      </div>
+
+      <div class="post_content">
+        <%= esc post['content'] %>
+      </div>
+
+    </div>
+
+    <div class="comments_container">
+
+      <% post.comments.last(3).each do |comment| %>
+
+      <div class="comment">
+
+        <div class="comment_image">
+
+          <img src="<%= comment['image_url'] %>" alt="" style="max-height: 250px; max-width: 250px" onclick="document.getElementById('expand_image_comment<%= comment['id'] %>').style.display='flex'">
+
+          <div class="modal_overlay" id="expand_image_comment<%= comment['id'] %>" onclick="document.getElementById('expand_image_comment<%= comment['id'] %>').style.display='none'">
+
+              <img src="<%= comment['image_url'] %>" style="max-height: 90vh; max-width: 90vw">
+
+          </div>
+
+        </div>
+
+        <div class="comment_details">
+          <b><%= esc User.find(comment.user_id).username %></b>
+          <span class="date"><%= comment.comment_time %></span>
+        </div>
+
+        <div class="comment_number">
+          <b>#<%= comment.id %></b>
+        </div>
+
+        <div class="comment_content">
+          <p><%= esc comment.content %></p>
+        </div>
+
+      </div>
+
+      <% end %>
+
+    </div>
+
+  <% end %>
 
   <% @posts.each do |post| %>
 
@@ -40,7 +116,7 @@
 
       <div class="post_number">
         <form action="/post/<%= @page_number %>/<%= post['id'] %>">
-          <button>[<%= post.comments.length %>] view thread</button>
+          <button>[<%= post.comments.length %>] View thread.</button>
           <b>#<%= post['id'] %></b>
         </form>
       </div>

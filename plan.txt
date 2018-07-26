@@ -59,6 +59,7 @@
 [X] Limit number of max posts (50) (on post creation, check)
 
 [] Delete thread if comments > 500 (on comment creation, check)
+  - Maybe not, could be fun to have a party thread
 
 [X] Pages instead of all posts on one page
 
@@ -70,7 +71,7 @@
 
 [X] Prevent posts without an image
 
-[] Sticky posts as moderator
+[] Pin posts as moderator
 
 [] Emoji code support (:dt:)
 

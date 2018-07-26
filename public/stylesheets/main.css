@@ -124,6 +124,7 @@ input:-webkit-autofill {
 }
 
 .login_form button {
+  width: 60px;
   font-size: 100%;
   background-color: rgba(19,19,19,.2);
   color: white;

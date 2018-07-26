@@ -37,6 +37,7 @@ get '/' do
 
   # For page 1
   @posts = Post.all.sort_by{ |p| p.last_activity }.last(10).reverse
+  @pinned = Post.where("pinned = 1")
   @page_number = '1'
 
   # Use .last(20) for 2nd page, .last(30) for 3rd page etc
@@ -271,5 +272,14 @@ delete '/comment/:id' do
   comment = Comment.find( params[:id] )
   comment.destroy
 
-  redirect "/post/#{ params[:post_id] }"
+  redirect "/post/#{ params[:page_number] }/#{ params[:post_id] }"
+end
+
+# pin post functionality
+pin '/post/:id' do
+  post = Post.find( params[:id] )
+  post.pinned = 1
+  post.save
+
+  redirect '/'
 end

@@ -1,14 +1,14 @@
 <div class="login_header">
 
   <h1><span class="logo">&there4;</span> #<%= @post['id'] %></h1>
-  <a href="/page/<%= @page_number %>"><h2>&larr; Back</h2></a>
+  <a href="/page/<%= @page_number %>"><h2>&larr; Back.</h2></a>
 
 </div>
 
 <div class="posts_container">
 
   <form action="/new_comment/<%= @page_number %>/<%= @post['id'] %>" method="get">
-    <button>comment</button>
+    <button>Comment.</button>
   </form>
 
   <div class="post">
@@ -27,7 +27,12 @@
       <% if current_user.admin == "1" %>
         <form action="/post/<%= @post['id'] %>" method="post">
           <input type="hidden" name="_method" value="delete">
-          <button>delete [A]</button>
+          <button>Delete. [A]</button>
+        </form>
+        <br>
+        <form action="/post/<%= @post['id'] %>" method="post">
+          <input type="hidden" name="_method" value="pin">
+          <button>Pin. [A]</button>
         </form>
       <% end %>
     </div>
@@ -64,7 +69,7 @@
           <form action="/comment/<%= comment['id'] %>" method="post">
             <input type="hidden" name="post_id" value="<%= @post['id'] %>">
             <input type="hidden" name="_method" value="delete">
-            <button>delete [A]</button>
+            <button>Delete. [A]</button>
           </form>
         <% end %>
       </div>

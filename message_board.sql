@@ -14,7 +14,8 @@ CREATE TABLE posts (
   post_time VARCHAR(100),
   last_activity VARCHAR(100),
   user_id INTEGER NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+  FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
+  pinned BIT NOT NULL
 );
 
 CREATE TABLE comments (
