@@ -109,14 +109,18 @@ end
 
 get '/new_user' do
   # if user is logged in, redirect to index
-    if logged_in? redirect '/'
+    if logged_in?
+      redirect '/'
+    end
 
   erb :new_user
 end
 
 get '/new_user/:error_message' do
   # if user is logged in, redirect to index
-    if logged_in? redirect '/'
+    if logged_in?
+      redirect '/'
+    end
 
   @error_message = params[:error_message]
 
