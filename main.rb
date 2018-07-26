@@ -167,6 +167,12 @@ post '/post/new' do
   post.user_id = current_user.id
   post.save
 
+  #delete oldest post to make room for newest (50 post capacity)
+  if Post.all.length > 50
+    oldest_post = Post.all.sort_by{ |p| p.last_activity }.first
+    oldest_post.destroy
+  end
+
   # get post redirect
   redirect '/'
 end

@@ -1,11 +1,12 @@
 <div class="login_header">
 
-  <h1><span class="logo">&there4;</span> Talk about something.</h1>
+  <h1><span class="logo">&there4;</span> Talk about something.<br>Page #<%= @page_number %>.</h1>
 
   <form action="/session" method="post" class="current_user">
     <h4>Hi <%= esc current_user.username%> <% if current_user.admin == "1" %> [A]</h4> <% end %>
     <input type="hidden" name="_method" value="delete">
     <button>logout</button>
+    <h3>Page <%= @page_number %>.</h3>
   </form>
 
 </div>
