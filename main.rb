@@ -161,7 +161,9 @@ post '/create_user' do
 end
 
 # redirect to new post page
-get '/new_post' do
+get '/:page_number/new_post' do
+
+  @page_number = params[:page_number]
   # if user is not logged in, redirect to login page
   redirect '/login' unless logged_in?
 
@@ -169,7 +171,10 @@ get '/new_post' do
 end
 
 # redirect to new comment page
-get '/new_comment/:id' do
+get '/new_comment/:page_number/:id' do
+
+  @page_number = params[:page_number]
+
   # if user is not logged in, redirect to login page
   redirect '/login' unless logged_in?
 
@@ -185,7 +190,7 @@ end
 
 # create new post
 post '/post/new' do
-  @no_image = "Posts must contain an image."
+  @no_image = "Post an image."
   # check that post contains an image
   if params[:image_url] = ""
     redirect "/new_post/#{ @no_image }"

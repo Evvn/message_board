@@ -68,7 +68,7 @@
  - from 'create post' page back to correct page
  - from 'create comment' page back to post
 
-[] Prevent posts without an image
+[X] Prevent posts without an image
 
 [] Sticky posts as moderator
 

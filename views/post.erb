@@ -7,7 +7,7 @@
 
 <div class="posts_container">
 
-  <form action="/new_comment/<%= @post['id'] %>" method="get">
+  <form action="/new_comment/<%= @page_number %>/<%= @post['id'] %>" method="get">
     <button>comment</button>
   </form>
 
