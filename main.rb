@@ -59,6 +59,9 @@ get '/page/:page_number' do
   @page_number = params[:page_number]
   @posts = Post.all.sort_by{ |p| p.last_activity }.last(load_posts).reverse.last(10)
 
+  # keep pinned posts off pages 2+
+  @pinned = []
+
   # Use .last(20) for 2nd page, .last(30) for 3rd page etc
   # Post.all.sort_by{ |p| p.last_activity }.last(20).reverse.last(10)
 
