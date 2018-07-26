@@ -54,7 +54,7 @@
 
 [X] When creating new user, prompt confirmation of password
 
-[] Prevent duplicate usernames on registration
+[X] Prevent duplicate usernames on registration
 
 [X] Limit number of max posts (50) (on post creation, check)
 
@@ -64,7 +64,13 @@
 
 [X] Show current page number at top of page
 
-[X] <- Back link direct to correct page
+[] <- Back link direct to correct page
+ - from 'create post' page back to correct page
+ - from 'create comment' page back to post
+
+[] Prevent posts without an image
+
+[] Sticky posts as moderator
 
 [] Emoji code support (DT)
 

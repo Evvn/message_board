@@ -8,6 +8,7 @@
 <div class="new_post">
 
   <form action="/post/new" method="post">
+    <span class="error_message"><%= @error_message %></span><br>
     <input type="text" name="image_url" autocomplete="off" placeholder="image url">&nbsp;
     <textarea name="content" rows="5" cols="38" style="resize:none" maxlength="2000"></textarea>
     <br><button>Send it!</button>

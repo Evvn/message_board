@@ -108,11 +108,15 @@ delete '/session' do
 end
 
 get '/new_user' do
+  # if user is logged in, redirect to index
+    if logged_in? redirect '/'
 
   erb :new_user
 end
 
 get '/new_user/:error_message' do
+  # if user is logged in, redirect to index
+    if logged_in? redirect '/'
 
   @error_message = params[:error_message]
 
@@ -177,6 +181,11 @@ end
 
 # create new post
 post '/post/new' do
+  @no_image = "Posts must contain an image."
+  # check that post contains an image
+  if params[:image_url] = ""
+    redirect "/new_post/#{ @no_image }"
+  end
   # get inputs from new post form
   post = Post.new
   post.image_url = params[:image_url]
@@ -194,6 +203,12 @@ post '/post/new' do
 
   # get post redirect
   redirect '/'
+end
+
+get '/new_post/:error_message' do
+  @error_message = params[:error_message]
+
+  erb :new_post
 end
 
 # show post details by id
