@@ -107,11 +107,12 @@ delete '/session' do
   redirect '/login'
 end
 
-get '/new_user/:error_message' do
+get '/new_user' do
 
-  if params[:error_message] == nil
-    erb :new_user
-  end
+  erb :new_user
+end
+
+get '/new_user/:error_message' do
 
   @error_message = params[:error_message]
 
