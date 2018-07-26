@@ -64,7 +64,7 @@
 
 [X] Show current page number at top of page
 
-[] <- Back link direct to correct page
+[X] <- Back link direct to correct page
  - from 'create post' page back to correct page
  - from 'create comment' page back to post
 
@@ -72,7 +72,7 @@
 
 [] Sticky posts as moderator
 
-[] Emoji code support (DT)
+[] Emoji code support (:dt:)
 
 [] Mobile design
 
