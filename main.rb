@@ -172,7 +172,7 @@ post '/post/new' do
 end
 
 # show post details by id
-get '/post/:id' do
+get '/post/:page_number/:id' do
   # if user is not logged in, redirect to login page
   redirect '/login' unless logged_in?
 
@@ -181,6 +181,7 @@ get '/post/:id' do
     redirect '/404'
   end
 
+  @page_number = params[:page_number]
   @post = Post.find( params[:id] )
   @comments = @post.comments
 

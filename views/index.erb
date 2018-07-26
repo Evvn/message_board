@@ -38,7 +38,7 @@
       </div>
 
       <div class="post_number">
-        <form action="/post/<%= post['id'] %>">
+        <form action="/post/<%= @page_number %>/<%= post['id'] %>">
           <button>[<%= post.comments.length %>] view thread</button>
           <b>#<%= post['id'] %></b>
         </form>

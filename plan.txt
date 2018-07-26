@@ -60,11 +60,17 @@
 
 [] Delete thread if comments > 500 (on comment creation, check)
 
-[] Pages instead of all posts on one page
+[X] Pages instead of all posts on one page
+
+[] Show current page number at top of page
+
+[] <- Back link direct to correct page
 
 [] Emoji code support (DT)
 
 [X] Expand images to full size on click
+
+[] Y u no js?
 
 Notes:
 
