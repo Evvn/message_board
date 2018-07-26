@@ -109,6 +109,10 @@ end
 
 get '/new_user/:error_message' do
 
+  if params[:error_message] == nil
+    erb :new_user
+  end
+
   @error_message = params[:error_message]
 
   erb :new_user
