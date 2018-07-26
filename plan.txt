@@ -42,7 +42,7 @@
 
 [] Quote functionality ">"
 
-[] Beautify with CSS
+[X] Beautify with CSS
 
 [] Toggle invert color for bb
 
@@ -56,17 +56,19 @@
 
 [] Prevent duplicate usernames on registration
 
-[] Limit number of max posts (50) (on post creation, check)
+[X] Limit number of max posts (50) (on post creation, check)
 
 [] Delete thread if comments > 500 (on comment creation, check)
 
 [X] Pages instead of all posts on one page
 
-[] Show current page number at top of page
+[X] Show current page number at top of page
 
-[] <- Back link direct to correct page
+[X] <- Back link direct to correct page
 
 [] Emoji code support (DT)
+
+[] Mobile design
 
 [X] Expand images to full size on click
 

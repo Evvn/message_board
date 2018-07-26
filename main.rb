@@ -124,7 +124,14 @@ post '/create_user' do
     end
     # add new user object to db
     # set admin rights to false (0)
-    User.create!(username: params[:username], password: params[:password], admin: "0");
+    # why i do it this way lol bang-bang
+    # User.create!(username: params[:username], password: params[:password], admin: "0");
+    user = User.new(username: params[:username], password: params[:password], admin: "0")
+    if user.save == false
+      redirect '/new_user'
+    else
+      user.save
+    end
     # set user by new user username
     user = User.find_by(username: params[:username])
     # create new session
