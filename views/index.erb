@@ -18,7 +18,7 @@
   </form>
 
   <!-- Pinned posts -->
-  <% if @pinned.lengh > 0 || @page_number == '1' %>
+  <% if @pinned.length > 0 && @page_number == '1' %>
 
     <% @pinned.each do |post| %>
 
