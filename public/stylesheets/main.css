@@ -164,6 +164,11 @@ input:-webkit-autofill {
   height: 20vh;
 }
 
+.error_message {
+  color: #1d1d1d;
+  font-size: 200%;
+}
+
 .post {
   background-color: #dac6ff;
   color: #1d1d1d;

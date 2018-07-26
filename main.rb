@@ -107,16 +107,22 @@ delete '/session' do
   redirect '/login'
 end
 
-get '/new_user' do
+get '/new_user/:error_message' do
+
+  @error_message = params[:error_message]
 
   erb :new_user
 end
 
 # create a new user
 post '/create_user' do
+
+    @password_match_fail = "Passwords do not match."
+    @username_taken = "Username is taken."
+
     # check that params are not empty
     if params[:username] == "" || params[:password] == ""
-      redirect '/new_user'
+      redirect "/new_user/#{ @password_match_fail }"
     end
     # check if password confirmation is incorrect
     if params[:password] != params[:password_confirm]
@@ -128,7 +134,7 @@ post '/create_user' do
     # User.create!(username: params[:username], password: params[:password], admin: "0");
     user = User.new(username: params[:username], password: params[:password], admin: "0")
     if user.save == false
-      redirect '/new_user'
+      redirect "/new_user/#{ @username_taken }"
     else
       user.save
     end
