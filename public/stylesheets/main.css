@@ -167,6 +167,7 @@ input:-webkit-autofill {
 .error_message {
   color: #1d1d1d;
   font-size: 200%;
+  font-weight: bold;
 }
 
 .post {
