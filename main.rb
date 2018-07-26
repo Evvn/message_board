@@ -261,6 +261,11 @@ end
 
 # delete post functionality
 delete '/post/:id' do
+  # ensure current user is admin, redirect if not
+  if current_user.admin == '0'
+    erb :pnf
+  end
+
   post = Post.find( params[:id] )
   post.destroy
 
@@ -269,6 +274,11 @@ end
 
 # delete comment functionality
 delete '/comment/:id' do
+  # ensure current user is admin, redirect if not
+  if current_user.admin == '0'
+    erb :pnf
+  end
+
   comment = Comment.find( params[:id] )
   comment.destroy
 
@@ -276,7 +286,12 @@ delete '/comment/:id' do
 end
 
 # pin post functionality
-pin '/post/:id' do
+post '/pin/post/:id' do
+  # ensure current user is admin, redirect if not
+  if current_user.admin == '0'
+    erb :pnf
+  end
+
   post = Post.find( params[:id] )
   post.pinned = 1
   post.save

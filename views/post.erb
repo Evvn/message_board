@@ -27,12 +27,11 @@
       <% if current_user.admin == "1" %>
         <form action="/post/<%= @post['id'] %>" method="post">
           <input type="hidden" name="_method" value="delete">
-          <button>Delete. [A]</button>
+          <button>[A] Delete.</button>
         </form>
         <br>
-        <form action="/post/<%= @post['id'] %>" method="post">
-          <input type="hidden" name="_method" value="pin">
-          <button>Pin. [A]</button>
+        <form action="/pin/post/<%= @post['id'] %>" method="post">
+          <button>[A] Pin.</button>
         </form>
       <% end %>
     </div>
@@ -69,7 +68,7 @@
           <form action="/comment/<%= comment['id'] %>" method="post">
             <input type="hidden" name="post_id" value="<%= @post['id'] %>">
             <input type="hidden" name="_method" value="delete">
-            <button>Delete. [A]</button>
+            <button>[A] Delete.</button>
           </form>
         <% end %>
       </div>
