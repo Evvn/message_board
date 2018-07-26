@@ -196,7 +196,7 @@ end
 post '/post/new' do
   @no_image = "Post an image."
   # check that post contains an image
-  if params[:image_url] = ""
+  if params[:image_url] == ""
     redirect "/new_post/#{ @no_image }"
   end
   # get inputs from new post form

@@ -37,9 +37,7 @@
         </div>
 
         <div class="post_details">
-          <img src="images/pinned.png"><b>[Pinned] </b>
-          <br>
-          <b><%= esc User.find(post.user_id).username %></b>
+          <b>[<img src="images/pinned.png" style="height: 15px;">] <%= esc User.find(post.user_id).username %></b>
           <span class="date"><%= post.post_time%></span>
         </div>
 
