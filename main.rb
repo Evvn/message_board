@@ -124,14 +124,15 @@ post '/create_user' do
 
     @password_match_fail = "Passwords do not match."
     @username_taken = "Username is taken."
+    @empty_inputs = "Type something."
 
     # check that params are not empty
     if params[:username] == "" || params[:password] == ""
-      redirect "/new_user/#{ @password_match_fail }"
+      redirect "/new_user/#{ @empty_inputs }"
     end
     # check if password confirmation is incorrect
     if params[:password] != params[:password_confirm]
-      redirect 'new_user'
+      redirect "/new_user/#{ @password_match_fail }"
     end
     # add new user object to db
     # set admin rights to false (0)
