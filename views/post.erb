@@ -52,7 +52,7 @@
     </div>
 
     <div class="post_content">
-      <%= esc @post['content'] %>
+      <%= format(esc @post['content']) %>
     </div>
 
   </div>
@@ -90,7 +90,7 @@
       </div>
 
       <div class="comment_content">
-        <p><%= esc comment['content'] %></p>
+        <p><%= format(esc comment['content']) %></p>
       </div>
 
     </div>
