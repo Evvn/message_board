@@ -10,7 +10,7 @@ require_relative "models/post"
 require_relative "models/comment"
 require_relative "models/user"
 
-# register Padrino::Helpers
+register Padrino::Helpers
 
 configure { set :server, :puma }
 enable :sessions
@@ -31,8 +31,7 @@ helpers do
   end
 
   def format(content)
-    # simple_format(content)
-    content
+    simple_format(content)
   end
 
 end
@@ -165,7 +164,7 @@ post '/create_user' do
     user.username = params[:username]
     user.password = params[:password]
     user.admin = "0"
-    if user.save == false
+    if user.valid? == false
       redirect "/new_user/#{ @username_taken }"
     else
       user.save
