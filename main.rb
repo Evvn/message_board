@@ -36,7 +36,7 @@ get '/' do
   # @posts = Post.all.sort_by{ |p| p.last_activity }.reverse
 
   # For page 1
-  @posts = Post.all.sort_by{ |p| p.last_activity }.last(10).reverse
+  @posts = Post.where("pinned = '0'").sort_by{ |p| p.last_activity }.last(10).reverse
   @pinned = Post.where("pinned = '1'")
   @page_number = '1'
 
@@ -57,7 +57,7 @@ get '/page/:page_number' do
   load_posts = (params[:page_number] + '0').to_i
 
   @page_number = params[:page_number]
-  @posts = Post.all.sort_by{ |p| p.last_activity }.last(load_posts).reverse.last(10)
+  @posts = Post.where("pinned = '0'").sort_by{ |p| p.last_activity }.last(load_posts).reverse.last(10)
 
   # keep pinned posts off pages 2+
   @pinned = []

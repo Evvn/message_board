@@ -71,7 +71,11 @@
 
 [X] Prevent posts without an image
 
-[] Pin posts as moderator
+[X] Pin posts as moderator
+
+[] Unpin posts as mod...
+
+[] Prevent pinned posts from being deleted or showing up among normal posts
 
 [] Emoji code support (:dt:)
 
