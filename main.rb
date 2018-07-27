@@ -158,10 +158,13 @@ post '/create_user' do
     # set admin rights to false (0)
     # why i do it this way lol bang-bang
     # User.create!(username: params[:username], password: params[:password], admin: "0");
-    user = User.new(username: params[:username], password: params[:password], admin: "0")
+    user = User.new
+    # (username: params[:username], password: params[:password], admin: "0")
+    user.username = params[:username]
+    user.password = params[:password]
+    user.admin = "0"
     if user.save == false
-      redirect '/new_user'
-      # redirect "/new_user/#{ @username_taken }"
+      redirect "/new_user/#{ @username_taken }"
     else
       user.save
     end
