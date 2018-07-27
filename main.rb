@@ -29,7 +29,7 @@ helpers do
   # Rack::Utils helper to escape html outputs
   def esc(text)
     content = Rack::Utils.escape_html(text)
-    simple_format(content)
+    Padrino::Helpers.simple_format(content)
   end
 
 end
