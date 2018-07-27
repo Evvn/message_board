@@ -160,7 +160,8 @@ post '/create_user' do
     # User.create!(username: params[:username], password: params[:password], admin: "0");
     user = User.new(username: params[:username], password: params[:password], admin: "0")
     if user.save == false
-      redirect "/new_user/#{ @username_taken }"
+      redirect '/new_user'
+      # redirect "/new_user/#{ @username_taken }"
     else
       user.save
     end
