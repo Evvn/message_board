@@ -158,8 +158,9 @@ post '/create_user' do
     # set admin rights to false (0)
     # why i do it this way lol bang-bang
     # User.create!(username: params[:username], password: params[:password], admin: "0");
-    user = User.new
     # (username: params[:username], password: params[:password], admin: "0")
+
+    user = User.new
     user.username = params[:username]
     user.password = params[:password]
     user.admin = "0"
@@ -168,8 +169,7 @@ post '/create_user' do
     else
       user.save
     end
-    # set user by new user username
-    user = User.find_by(username: params[:username])
+    
     # create new session
     session[:user_id] = user.id
     # redirect to index page
