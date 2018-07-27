@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'sinatra/base'
+# require 'sinatra/base'
 require 'padrino-helpers'
 # comment this out before going live on heroku
 # require 'sinatra/reloader'
