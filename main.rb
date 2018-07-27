@@ -11,28 +11,28 @@ require_relative "models/user"
 
 class Application < Sinatra::Base
   register Padrino::Helpers
+  
+  helpers do
+
+    def current_user
+      User.find_by(id: session[:user_id])
+    end
+
+    def logged_in?
+      !!current_user
+    end
+
+    # Rack::Utils helper to escape html outputs
+    def esc(text)
+      content = Rack::Utils.escape_html(text)
+      simple_format(content)
+    end
+
+  end
 end
 
 configure { set :server, :puma }
 enable :sessions
-
-helpers do
-
-  def current_user
-    User.find_by(id: session[:user_id])
-  end
-
-  def logged_in?
-    !!current_user
-  end
-
-  # Rack::Utils helper to escape html outputs
-  def esc(text)
-    content = Rack::Utils.escape_html(text)
-    Application::Helpers.simple_format(content)
-  end
-
-end
 
 # direct user if logged in to index, or if not logged in to login page
 get '/' do
