@@ -1,5 +1,4 @@
 require 'sinatra'
-configure { set :server, :puma }
 require 'padrino-helpers'
 # comment this out before going live on heroku
 # require 'sinatra/reloader'
@@ -11,9 +10,10 @@ require_relative "models/comment"
 require_relative "models/user"
 
 class Application < Sinatra::Base
-  register Padrino::Helpers
-
+  configure { set :server, :puma }
   enable :sessions
+
+  register Padrino::Helpers
 
   helpers do
 
