@@ -1,5 +1,5 @@
 require 'sinatra'
-# require 'sinatra/base'
+require 'sinatra/base'
 require 'padrino-helpers'
 # comment this out before going live on heroku
 # require 'sinatra/reloader'
@@ -164,7 +164,7 @@ post '/create_user' do
     user.username = params[:username]
     user.password = params[:password]
     user.admin = "0"
-    if user.valid? == false
+    if User.find_by(username: params[:username]) != nil
       redirect "/new_user/#{ @username_taken }"
     else
       user.save
