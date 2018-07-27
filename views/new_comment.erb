@@ -9,6 +9,7 @@
 
   <form action="/comment/new" method="post">
     <input type="hidden" name="post_id" value="<%= @post['id'] %>">
+    <input type="hidden" name="page_number" value="<%= @page_number %>">
     <input type="text" name="image_url" autocomplete="off" placeholder="image url">&nbsp;
     <textarea name="content" rows="5" cols="38" style="resize:none" maxlength="2000"></textarea>
     <br><button>Send it!</button>
