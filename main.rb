@@ -259,7 +259,7 @@ post '/comment/new' do
   post.last_activity = (Time.now.utc + 10.hours).strftime("%-d/%m/%y %H:%M:%S")
   post.save
 
-  redirect "/post/#{ params[:page_number] }/#{ params[:post_id] }"
+  redirect "/post/1/#{ params[:post_id] }"
 end
 
 # delete post functionality
