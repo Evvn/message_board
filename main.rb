@@ -30,8 +30,8 @@ helpers do
     Rack::Utils.escape_html(text)
   end
 
-  def format(content)
-    simple_format(content)
+  def format(text)
+    simple_format(text)
   end
 
 end
