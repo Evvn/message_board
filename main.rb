@@ -301,3 +301,17 @@ post '/pin/post/:id' do
 
   redirect '/'
 end
+
+# unpin post functionality
+post '/unpin/post/:id' do
+  # ensure current user is admin, redirect if not
+  if current_user.admin == '0'
+    erb :pnf
+  end
+
+  post = Post.find( params[:id] )
+  post.pinned = 0
+  post.save
+
+  redirect '/'
+end

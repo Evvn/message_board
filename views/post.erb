@@ -23,16 +23,22 @@
 
       </div>
 
-
+      <!-- [A] Admin controls -->
       <% if current_user.admin == "1" %>
         <form action="/post/<%= @post['id'] %>" method="post">
           <input type="hidden" name="_method" value="delete">
           <button>[A] Delete.</button>
         </form>
         <br>
-        <form action="/pin/post/<%= @post['id'] %>" method="post">
-          <button>[A] Pin.</button>
+        <% if @post['pinned'] == '1' %>
+        <form action="/unpin/post/<%= @post['id'] %>" method="post">
+          <button>[A] Unpin.</button>
         </form>
+        <% else %>
+          <form action="/pin/post/<%= @post['id'] %>" method="post">
+            <button>[A] Pin.</button>
+          </form>
+        <% end %>
       <% end %>
     </div>
 

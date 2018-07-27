@@ -75,7 +75,7 @@
 
 [] Unpin posts as mod...
 
-[] Prevent pinned posts from being deleted or showing up among normal posts
+[X] Prevent pinned posts from being deleted or showing up among normal posts
 
 [] Emoji code support (:dt:)
 
