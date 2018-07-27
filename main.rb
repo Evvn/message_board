@@ -10,7 +10,7 @@ require_relative "models/post"
 require_relative "models/comment"
 require_relative "models/user"
 
-register Padrino::Helpers
+# register Padrino::Helpers
 
 configure { set :server, :puma }
 enable :sessions
@@ -31,7 +31,8 @@ helpers do
   end
 
   def format(content)
-    simple_format(content)
+    # simple_format(content)
+    content
   end
 
 end
@@ -169,7 +170,7 @@ post '/create_user' do
     else
       user.save
     end
-    
+
     # create new session
     session[:user_id] = user.id
     # redirect to index page
