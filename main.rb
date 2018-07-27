@@ -23,7 +23,8 @@ helpers do
 
   # Rack::Utils helper to escape html outputs
   def esc(text)
-    Rack::Utils.escape_html(text)
+    content = Rack::Utils.escape_html(text)
+    simple_format(content)
   end
 
 end
