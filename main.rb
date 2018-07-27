@@ -164,16 +164,13 @@ post '/create_user' do
     user.username = params[:username]
     user.password = params[:password]
     user.admin = "0"
-    if User.find_by(username: params[:username]) != nil
-      redirect "/new_user/#{ @username_taken }"
-    else
+    if User.find_by(username: user.username) == nil
       user.save
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      redirect "/new_user/#{ @username_taken }"
     end
-
-    # create new session
-    session[:user_id] = user.id
-    # redirect to index page
-    redirect '/'
 end
 
 # redirect to new post page
